@@ -11,4 +11,4 @@ You must configure a callback URL in your Pay4App merchant dashboard. You can do
 
 If your clients access your WHMCS from http://example.com/whmcs, then the callback is at http://example.com/whmcs/modules/gateways/callback/pay4app.php
 
-Don't forget to check *Confirm change* before clicking Save.
+Don't forget to check *Confirm change* before clicking Save, and make sure Callback Maintenance Mode is *off*
