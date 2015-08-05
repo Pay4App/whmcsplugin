@@ -1,11 +1,22 @@
 <?php
 function pay4app_config()
 {
+
     $configarray = array
     (
-        "FriendlyName" => array("Type" => "System", "Value" => "Pay4App"),
-        "pay4appmerchantid" => array("FriendlyName" => "Merchant ID", "Type" => "text", "Size" => "50"),
-        "pay4appsecretkey" => array("FriendlyName" => "Group", "Type" => "text", "Size" => "100")
+        "FriendlyName" => array(
+            "Type" => "System", "Value" => "Pay4App"
+        ),
+        "pay4appmerchantid" => array(
+            "FriendlyName" => "Merchant ID",
+            "Type" => "text",
+            "Size" => "50"
+        ),
+        "pay4appsecretkey" => array(
+            "FriendlyName" => "Secret Key",
+            "Type" => "text",
+            "Size" => "100"
+        )
     );
     return $configarray;
 }

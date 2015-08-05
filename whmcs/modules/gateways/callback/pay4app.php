@@ -1,8 +1,18 @@
 <?php
-include("../../../dbconnect.php");
+
 include("../../../includes/functions.php");
 include("../../../includes/gatewayfunctions.php");
 include("../../../includes/invoicefunctions.php");
+
+if (file_exists('../../../dbconnect.php'))
+{
+    include '../../../dbconnect.php';
+} else if (file_exists('../../../init.php'))
+    {
+        include '../../../init.php';
+    } else {
+        die('DBConnect.php or init.php not found in modules/gateways/callback/pay4app.php');
+    }
 
 $gatewaymodule = "pay4app";
 
@@ -30,7 +40,7 @@ else if (is_pay4app_notif($GATEWAY["pay4appmerchantid"], $GATEWAY["pay4appsecret
     //Check invoice
     checkCbInvoiceID($invoiceid, $GATEWAY["name"]);
     checkCbTransID($checkoutid);
-
+    
     addInvoicePayment($invoiceid,$checkoutid,$amount,$fee,$gatewaymodule); # Apply Payment to Invoice: invoiceid, transactionid, amount paid, fees, modulename
     logTransaction($GATEWAY["name"], $_GET, "Successful Pay4App Checkout ".$_GET['checkout']); # Save to Gateway Log: name, data array, status
 
